@@ -2,7 +2,6 @@ public class Solution {
     public bool IsPalindrome(string s) {
         
         bool isPalindrome = true;
-        Console.WriteLine(s);
         
         for(int i = 0, j = s.Length - 1;i <= j; i++, j--)
         {
@@ -15,8 +14,7 @@ public class Solution {
             }
             
             if(i <= j && Char.ToLower(s[i]) == Char.ToLower(s[j]))
-            {                
-                Console.WriteLine("Continue");
+            {
                 continue;
             }
             else if(i > j)
@@ -24,8 +22,7 @@ public class Solution {
                 break;
             }
             else
-            {                
-                Console.WriteLine("Setting False");
+            {
                 isPalindrome = false;
             }
         }
