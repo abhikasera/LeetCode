@@ -33,7 +33,7 @@ public class Solution {
         if(currentMax < left + right)
             currentMax = left + right;
         
-        Console.WriteLine(root.val + " - " + left + " - " + right + " - " + currentMax);
+        //Console.WriteLine(root.val + " - " + left + " - " + right + " - " + currentMax);
         
         return Math.Max(left,  right) + 1;
     }
