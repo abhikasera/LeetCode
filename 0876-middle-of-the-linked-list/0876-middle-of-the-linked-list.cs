@@ -27,7 +27,7 @@ public class Solution {
             mid--;
         }
         
-        Console.WriteLine(temp.val);
+        //Console.WriteLine(temp.val);
         
         return temp;
     }
