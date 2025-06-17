@@ -10,7 +10,8 @@ public class Solution {
         for(int i = 1; i < nums.Length; i++)
         {
             x = target - nums[i];
-            if(map.ContainsKey(x)){
+            if(map.ContainsKey(x))
+            {
                 output[0] = map[x];
                 output[1] = i;
                 break;
