@@ -11,43 +11,34 @@
  */
 public class Solution {
     public ListNode MergeTwoLists(ListNode list1, ListNode list2) {
-        
-        if(list1 == null && list2 == null)
-            return null;
-        
-        ListNode mergedList = new ListNode();
-        ListNode currentNode = mergedList;
-        while(list1 != null || list2 != null)
-        {
+        ListNode output = new ListNode();
+        ListNode output1 = output;
+
+        while(list1 != null || list2 != null){
+            
             if(list1 == null)
             {
-                currentNode.val = list2.val;           
-                list2 = list2.next;
-            }            
-            else if(list2 == null)
-            {
-                currentNode.val = list1.val;           
-                list1 = list1.next;
-            }            
-            else if(list1.val <= list2.val)
-            {
-                currentNode.val = list1.val;                
-                list1 = list1.next;
-            }
-            else
-            {
-                currentNode.val = list2.val;             
+                output.next = new ListNode(list2.val);
                 list2 = list2.next;
             }
-            
-            if(list1 != null || list2 != null)
-            {                
-                ListNode newNode = new ListNode();
-                currentNode.next = newNode;
-                currentNode = newNode;     
+            else if(list2 == null){
+                output.next = new ListNode(list1.val);
+                list1 = list1.next;
             }
+            else{
+                if(list1.val <= list2.val){
+                    output.next = new ListNode(list1.val);
+                    list1 = list1.next;
+                }
+                else
+                {
+                    output.next = new ListNode(list2.val);
+                    list2 = list2.next;
+                }
+            }
+            output = output.next;
         }
-        
-        return mergedList;
+
+        return output1.next;
     }
 }
