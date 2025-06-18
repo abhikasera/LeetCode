@@ -1,36 +1,31 @@
 public class Solution {
     public bool IsValid(string s) {
 
-        bool isValid = true;
-        List<char> braces = new List<char>();
+        List<char> stack = new List<char>();
 
         for(int i = 0; i < s.Length; i++)
         {
-            if(s[i] == '(' || s[i] == '{' || s[i] == '[')
+            if(s[i] == '[' || s[i] == '{' || s[i] == '(')
+                stack.Add(s[i]);
+            else
             {
-                braces.Add(s[i]);
-                continue;
-            }
-            else if(s[i] == ')' || s[i] == '}' || s[i] == ']')
-            {
-                if(!braces.Any())
+                if(!stack.Any())
                     return false;
                 
-                char last = braces.Last();
-                
-                if(s[i] == ')' && last != '(')
+                char e = stack.Last();
+                stack.RemoveAt(stack.Count - 1);
+                if(s[i] == ']' && e != '[')
                     return false;
-                else if(s[i] == '}' && last != '{')
+                else if(s[i] == '}' && e != '{')
                     return false;
-                else if(s[i] == ']' && last != '[')
+                else if(s[i] == ')' && e != '(')
                     return false;
-                
-                braces.RemoveAt(braces.Count - 1);
+
             }
         }
-        if(braces.Any())
+        if(stack.Any())
             return false;
-        return
-            true;
+
+        return true;
     }
 }
