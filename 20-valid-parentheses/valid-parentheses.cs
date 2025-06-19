@@ -1,4 +1,3 @@
-// Last updated: 6/18/2025, 10:43:01 PM
 public class Solution {
     public bool IsValid(string s) {
 
