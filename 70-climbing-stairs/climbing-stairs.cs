@@ -20,6 +20,7 @@ public class Solution {
             data[n - 2] = Calculate(n - 2, data);
         }
 
+        // Return the result
         return data[n - 2] + data[n - 1];
     }
 }
