@@ -12,33 +12,35 @@
 public class Solution {
     public ListNode MergeTwoLists(ListNode list1, ListNode list2) {
         ListNode output = new ListNode();
-        ListNode output1 = output;
-
-        while(list1 != null || list2 != null){
-            
+        ListNode head = output;
+        
+        while(!(list1 == null && list2 == null))
+        {
             if(list1 == null)
             {
-                output.next = new ListNode(list2.val);
+                output.next = list2;
                 list2 = list2.next;
             }
-            else if(list2 == null){
-                output.next = new ListNode(list1.val);
+            else if(list2 == null)
+            {
+                output.next = list1;
                 list1 = list1.next;
             }
-            else{
-                if(list1.val <= list2.val){
-                    output.next = new ListNode(list1.val);
+            else
+            {
+                if(list1.val <= list2.val)
+                {
+                    output.next = list1;
                     list1 = list1.next;
                 }
                 else
                 {
-                    output.next = new ListNode(list2.val);
+                    output.next = list2;
                     list2 = list2.next;
                 }
             }
             output = output.next;
         }
-
-        return output1.next;
+        return head.next;
     }
 }
