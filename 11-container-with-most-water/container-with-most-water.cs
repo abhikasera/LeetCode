@@ -11,15 +11,10 @@ public class Solution {
             if(area > currentMax)
                 currentMax = area;
 
-            if(height[i] >= height[j]){
-                //maxHeightIndex = i;
+            if(height[i] >= height[j])
                 j--;
-            }
-            else{
-                //maxHeightIndex = j;
+            else
                 i++;
-            }
-
         }
         return currentMax;   
     }
